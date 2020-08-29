@@ -3,22 +3,22 @@ plugins {
 }
 
 android {
-    compileSdkVersion 28
-    ndkVersion '21.3.6528147'
+    compileSdkVersion project.properties.compileSdkVersion.toInteger()
+    ndkVersion project.properties.ndkVersion
 
     dependencies {
         implementation "androidx.annotation:annotation:1.1.0"
         implementation "androidx.viewpager:viewpager:1.0.0"
-        implementation "androidx.drawerlayout:drawerlayout:1.0.0"
+        implementation "androidx.drawerlayout:drawerlayout:1.1.0"
         implementation project(":terminal-view")
     }
 
     defaultConfig {
         applicationId "com.termux"
-        minSdkVersion 24
-        targetSdkVersion 28
-        versionCode 95
-        versionName "0.95"
+        minSdkVersion project.properties.minSdkVersion.toInteger()
+        targetSdkVersion project.properties.targetSdkVersion.toInteger()
+        versionCode 99
+        versionName "0.99"
 
         externalNativeBuild {
             ndkBuild {
@@ -133,11 +133,11 @@ clean {
 
 task downloadBootstraps(){
     doLast {
-        def version = 25
-        downloadBootstrap("aarch64", "633baa1f7edfd81f6064338a68d1149aa203d4b24cbc4f7c64283aaca109609e", version)
-        downloadBootstrap("arm",     "a581a22e0d79a0e8cef9395b1bd951ba066ac2d688522e17cca0b3e1c0649daa", version)
-        downloadBootstrap("i686",    "8288e13f0a6ddeb2ff9406d8f968a8930a58e9318d09fadb2b7c8970a034cfdc", version)
-        downloadBootstrap("x86_64",  "c99b80a18d6bbb64c24c5a64d6ee6b8d4306729ebd172662b807bcb4a46dd39a", version)
+        def version = 28
+        downloadBootstrap("aarch64", "8f8c8af1d6c50bd0d6ecd5a1df8d5b0c3122a945b6febd0de0308504b4075ed0", version)
+        downloadBootstrap("arm",     "179465f403a73fec6534363b11cb38eed3b6b3d8e9d922d8e55dc8a06813240d", version)
+        downloadBootstrap("i686",    "2100ebf36befde73b08efaa7e3ccc9c218a8b5e7d69db06e16e364ab8b7dfbd5", version)
+        downloadBootstrap("x86_64",  "3f5192f63595426370aa69f102fac07ae00c12154878eddec24e8406e640a67f", version)
     }
 }
 
